@@ -3,6 +3,11 @@
     "next",
     "prettier"
   ],
+  "prettier/prettier": [
+    0,
+    {
+      "endOfLine": "auto"
+    },
   "plugins": [
     "prettier"
   ],
