@@ -3,16 +3,12 @@
     "next",
     "prettier"
   ],
-  "prettier/prettier": [
-    0,
-    {
-      "endOfLine": "auto"
-    }
-  ],
   "plugins": [
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   }
 }
