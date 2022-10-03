@@ -21,6 +21,4 @@ const Image = ({ image, style }) => {
   )
 }
 
-
 export default Image
-

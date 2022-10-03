@@ -22,10 +22,8 @@ const Category = ({ category, categories }) => {
 }
 
 export async function getStaticPaths() {
-
   let categoriesRes = await fetchAPI("/categories", { fields: ["slug"] })
   // .then(cats => {console.log(cats)}).catch(reason => console.error(reason))
-
 
   return {
     paths: categoriesRes.data.map((category) => ({
@@ -35,12 +33,9 @@ export async function getStaticPaths() {
     })),
     fallback: false,
   }
-  
 }
 
 export async function getStaticProps({ params }) {
-  
-  
   const matchingCategories = await fetchAPI("/categories", {
     filters: { slug: params.slug },
     populate: {
@@ -49,7 +44,7 @@ export async function getStaticProps({ params }) {
       },
     },
   })
-  
+
   const allCategories = await fetchAPI("/categories")
   return {
     props: {

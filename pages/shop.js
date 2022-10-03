@@ -34,18 +34,17 @@ const Shop = ({ parts, categories }) => {
 //     })),
 //     fallback: false,
 //   }
-  
+
 // }
 
 export async function getStaticProps({ params }) {
-  
   const forSaleParts = await fetchAPI("/parts", {
-    filters: { 
-        forsale: true 
+    filters: {
+      forsale: true,
     },
-    populate:  "*",
+    populate: "*",
   })
-  
+
   const allCategories = await fetchAPI("/categories")
   return {
     props: {
