@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown"
-import { fetchAPI } from "../../lib/api"
+import { fetchAPI, getCategories } from "../../lib/api"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import { useRouter } from "next/router"
@@ -53,7 +53,6 @@ export default function ProductPage({ product, categories }) {
           <h1>{title}</h1>
         </div>
       </div>
-
       {image}
       <div className="uk-section">
         <div className="uk-container uk-container-small">
@@ -73,7 +72,8 @@ export const getServerSideProps = async ({ params }) => {
   const product = await shopifyClient.product.fetchByHandle(productHandle)
 
   //Fetch categories
-  const categoriesRes = await fetchAPI("/categories", { populate: "*" })
+  //   const categoriesRes = await fetchAPI("/categories", { populate: "*" })
+  const categoriesRes = await getCategories()
 
   return {
     props: {

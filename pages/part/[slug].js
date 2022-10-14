@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
-import { fetchAPI } from "../../lib/api"
+import { fetchAPI, getCategories, getPart, getPartPath } from "../../lib/api"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import { useRouter } from "next/router"
@@ -62,7 +62,7 @@ const Part = ({ part, categories }) => {
 }
 
 export async function getStaticPaths() {
-  const partsRes = await fetchAPI("/parts", { fields: ["slug"] })
+  const partsRes = await getPartPath()
 
   return {
     paths: partsRes.data.map((part) => ({
@@ -75,18 +75,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const partsRes = await fetchAPI("/parts", {
-    filters: {
-      slug: params.slug,
-    },
-    populate: "*",
-  })
-  const categoriesRes = await fetchAPI("/categories", { populate: "*" })
+  // const partsRes = await fetchAPI("/parts", {
+  //   filters: {
+  //     slug: params.slug,
+  //   },
+  //   populate: "*",
+  // })
+  const partRes = await getPart(params)
+  const categoriesRes = await getCategories()
+  // const categoriesRes = await fetchAPI("/categories", { populate: "*" })
 
   // const categories = addForsaleCategory(partsRes, categoriesRes)
 
   return {
-    props: { part: partsRes.data[0], categories: categoriesRes },
+    props: { part: partRes.data[0], categories: categoriesRes },
     revalidate: 1,
   }
 }
