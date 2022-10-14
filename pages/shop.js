@@ -1,5 +1,5 @@
 import Parts from "../components/parts"
-import { fetchAPI } from "../lib/api"
+import { fetchAPI, getCategories } from "../lib/api"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -9,13 +9,12 @@ const Shop = ({ parts, categories }) => {
     metaDescription: `All for sale parts`,
   }
 
-  console.log(parts)
   return (
     <Layout categories={categories.data} needsHomeButton={true}>
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          <Parts parts={parts} />
+          {/* <Parts parts={parts} /> */}
         </div>
       </div>
     </Layout>
@@ -38,14 +37,14 @@ const Shop = ({ parts, categories }) => {
 // }
 
 export async function getStaticProps({ params }) {
-  const forSaleParts = await fetchAPI("/parts", {
-    filters: {
-      forsale: true,
-    },
-    populate: "*",
-  })
-
-  const allCategories = await fetchAPI("/categories")
+  // const forSaleParts = await fetchAPI("/parts", {
+  //   filters: {
+  //     forsale: true,
+  //   },
+  //   populate: "*",
+  // })
+  const forSaleParts = { data: [] }
+  const allCategories = await getCategories()
   return {
     props: {
       parts: forSaleParts.data,
