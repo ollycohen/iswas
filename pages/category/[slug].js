@@ -31,14 +31,15 @@ export async function getStaticPaths() {
   const categoriesRes = await getCategoryPaths()
   // // .then(cats => {console.log(cats)}).catch(reason => console.error(reason))
 
-  return {
-    paths: categoriesRes.data.map((category) => ({
-      params: {
-        slug: category.attributes.slug,
-      },
-    })),
-    fallback: false,
-  }
+  // return {
+  //   paths: categoriesRes.data.map((category) => ({
+  //     params: {
+  //       slug: category.attributes.slug,
+  //     },
+  //   })),
+  //   fallback: false,
+  // }
+  return categoriesRes
 }
 
 export async function getStaticProps({ params }) {
