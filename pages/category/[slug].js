@@ -39,7 +39,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-
   const matchingCategories = await getMatchingCategories(params)
   const allCategories = await getCategories()
 

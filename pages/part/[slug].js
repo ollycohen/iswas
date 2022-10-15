@@ -75,7 +75,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-
   const partRes = await getPart(params)
   const categoriesRes = await getCategories()
 

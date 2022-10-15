@@ -21,10 +21,8 @@ const Shop = ({ parts, categories }) => {
   )
 }
 
-
 export async function getStaticProps({ params }) {
- 
-  /* TODO Get all products */ 
+  /* TODO Get all products */
   const products = { data: [] }
 
   const allCategories = await getCategories()
@@ -36,6 +34,5 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   }
 }
-
 
 export default Shop
