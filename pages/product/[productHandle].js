@@ -71,8 +71,7 @@ export const getServerSideProps = async ({ params }) => {
   // Fetch one product
   const product = await shopifyClient.product.fetchByHandle(productHandle)
 
-  //Fetch categories
-  //   const categoriesRes = await fetchAPI("/categories", { populate: "*" })
+  // Fetch categories
   const categoriesRes = await getCategories()
 
   return {

@@ -1,5 +1,5 @@
 import Parts from "../components/parts"
-import { fetchAPI, getCategories } from "../lib/api"
+import { getCategories, getCategoryPaths } from "../lib/api"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -21,39 +21,21 @@ const Shop = ({ parts, categories }) => {
   )
 }
 
-// export async function getStaticPaths() {
-
-//   const categoriesRes = await fetchAPI("/categories", { fields: ["slug"] })
-
-//   return {
-//     paths: categoriesRes.data.map((category) => ({
-//       params: {
-//         slug: category.attributes.slug,
-//       },
-//     })),
-//     fallback: false,
-//   }
-
-// }
 
 export async function getStaticProps({ params }) {
-  // const forSaleParts = await fetchAPI("/parts", {
-  //   filters: {
-  //     forsale: true,
-  //   },
-  //   populate: "*",
-  // })
-  const forSaleParts = { data: [] }
+ 
+  /* TODO Get all products */ 
+  const products = { data: [] }
+
   const allCategories = await getCategories()
   return {
     props: {
-      parts: forSaleParts.data,
+      parts: products.data,
       categories: allCategories,
     },
     revalidate: 1,
   }
 }
 
-// getStaticProps().then(props => {console.log(props)})
 
 export default Shop

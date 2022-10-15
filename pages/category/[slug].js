@@ -1,6 +1,5 @@
 import Parts from "../../components/parts"
 import {
-  fetchAPI,
   getCategories,
   getMatchingCategories,
   getCategoryPaths,
@@ -27,34 +26,23 @@ const Category = ({ category, categories }) => {
 }
 
 export async function getStaticPaths() {
-  // let categoriesRes = await fetchAPI("/categories", { fields: ["slug"] })
   const categoriesRes = await getCategoryPaths()
-  // // .then(cats => {console.log(cats)}).catch(reason => console.error(reason))
 
-  // return {
-  //   paths: categoriesRes.data.map((category) => ({
-  //     params: {
-  //       slug: category.attributes.slug,
-  //     },
-  //   })),
-  //   fallback: false,
-  // }
-  return categoriesRes
+  return {
+    paths: categoriesRes.data.map((category) => ({
+      params: {
+        slug: category.attributes.slug,
+      },
+    })),
+    fallback: false,
+  }
 }
 
 export async function getStaticProps({ params }) {
-  // const matchingCategories = await fetchAPI("/categories", {
-  //   filters: { slug: params.slug },
-  //   populate: {
-  //     parts: {
-  //       populate: "*",
-  //     },
-  //   },
-  // })
-  const matchingCategories = await getMatchingCategories(params)
 
+  const matchingCategories = await getMatchingCategories(params)
   const allCategories = await getCategories()
-  // const allCategories = await fetchAPI("/categories")
+
   return {
     props: {
       category: matchingCategories.data[0],
@@ -63,7 +51,5 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   }
 }
-
-// getStaticProps().then(props => {console.log(props)})
 
 export default Category

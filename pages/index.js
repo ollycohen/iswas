@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Parts from "../components/parts"
 import Seo from "../components/seo"
-import { fetchAPI, getIndexData } from "../lib/api"
+import { getIndexData } from "../lib/api"
 import { shopifyClient, parseShopifyResponse } from "../lib/shopify"
 
 const Home = ({ categories, parts, homepage, products }) => {
@@ -20,28 +20,17 @@ const Home = ({ categories, parts, homepage, products }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  // const [categoriesRes, partsRes, homepageRes] = await Promise.all([
-  //   fetchAPI("/categories", { populate: "*" }),
-  //   fetchAPI("/parts", { populate: "*" }),
-  //   fetchAPI("/homepage", {
-  //     populate: {
-  //       hero: "*",
-  //       seo: { populate: "*" },
-  //     },
-  //   }),
-  // ])
   const [categoriesRes, partsRes, homepageRes] = await getIndexData()
 
   // Fetch all the products
-  // const products = await shopifyClient.product.fetchAll()
+  const products = await shopifyClient.product.fetchAll()
 
   return {
     props: {
       categories: categoriesRes.data,
       parts: partsRes.data,
       homepage: homepageRes.data,
-      // products: parseShopifyResponse(products),
-      products: [],
+      products: parseShopifyResponse(products),
     },
     revalidate: 1,
   }

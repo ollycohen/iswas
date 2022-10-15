@@ -2,7 +2,7 @@ import App from "next/app"
 import Head from "next/head"
 import "../assets/css/style.css"
 import { createContext } from "react"
-import { fetchAPI } from "../lib/api"
+import { getGlobal, fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
 
 // Store Strapi Global object in context
@@ -34,14 +34,8 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx)
   // Fetch global site settings from Strapi
-  const globalRes = await fetchAPI("/global", {
-    populate: {
-      favicon: "*",
-      defaultSeo: {
-        populate: "*",
-      },
-    },
-  })
+  const globalRes = await getGlobal()
+
   // Pass the data to our page via props
   return { ...appProps, pageProps: { global: globalRes.data } }
 }
