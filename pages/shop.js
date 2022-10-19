@@ -2,8 +2,9 @@ import Parts from "../components/parts"
 import { getCategories, getCategoryPaths } from "../lib/api"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { shopifyClient, parseShopifyResponse } from "../lib/shopify"
 
-const Shop = ({ parts, categories }) => {
+const Shop = ({ products, categories }) => {
   const seo = {
     metaTitle: "Shop",
     metaDescription: `All for sale parts`,
@@ -14,7 +15,7 @@ const Shop = ({ parts, categories }) => {
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          {/* <Parts parts={parts} /> */}
+          <Parts products={products} />
         </div>
       </div>
     </Layout>
@@ -23,12 +24,12 @@ const Shop = ({ parts, categories }) => {
 
 export async function getStaticProps({ params }) {
   /* TODO Get all products */
-  const products = { data: [] }
+  const products = await shopifyClient.product.fetchAll()
 
   const allCategories = await getCategories()
   return {
     props: {
-      parts: products.data,
+      products: parseShopifyResponse(products),
       categories: allCategories,
     },
     revalidate: 1,
