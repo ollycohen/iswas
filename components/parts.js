@@ -30,6 +30,7 @@ const Parts = ({ parts, products }) => {
               height="100%"
               // objectFit="contain"
               src={productImage}
+              priority={true}
               alt={`Picture of ${title}`}
             />
           )

@@ -2,26 +2,27 @@ import App from "next/app"
 import Head from "next/head"
 import "../assets/css/style.css"
 import { createContext } from "react"
-import { getGlobal, fetchAPI } from "../lib/api"
+import { getGlobal } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({})
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, apollo }) => {
   const { global } = pageProps
-
   return (
     <>
-      <Head>
-        <link
-          rel="shortcut icon"
-          href={getStrapiMedia(global.attributes.favicon)}
-        />
-      </Head>
-      <GlobalContext.Provider value={global.attributes}>
-        <Component {...pageProps} />
-      </GlobalContext.Provider>
+      {/* <ApolloProvider client={apollo}> */}
+          <Head>
+            <link
+              rel="shortcut icon"
+              href={getStrapiMedia(global.attributes.favicon)}
+            />
+          </Head>
+          <GlobalContext.Provider value={global.attributes}>
+            <Component {...pageProps} />
+          </GlobalContext.Provider>
+      {/* </ApolloProvider> */}
     </>
   )
 }
@@ -40,4 +41,5 @@ MyApp.getInitialProps = async (ctx) => {
   return { ...appProps, pageProps: { global: globalRes.data } }
 }
 
+// export default withData(MyApp)
 export default MyApp

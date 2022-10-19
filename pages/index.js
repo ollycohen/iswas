@@ -5,16 +5,18 @@ import Seo from "../components/seo"
 import { getIndexData } from "../lib/api"
 import { shopifyClient, parseShopifyResponse } from "../lib/shopify"
 
+
+
 const Home = ({ categories, parts, homepage, products }) => {
   return (
-    <Layout categories={categories}>
-      <Seo seo={homepage.attributes.seo} />
-      <div className="uk-container uk-container-large">
-        {/* <h1>{homepage.attributes.hero.title}</h1> */}
-        <Parts parts={parts} products={products} />
-        <div className="uk-margin-large-bottom"></div>
-      </div>
-    </Layout>
+      <Layout categories={categories}>
+        <Seo seo={homepage.attributes.seo} />
+        <div className="uk-container uk-container-large">
+                  {/* <h1>{homepage.attributes.hero.title}</h1> */}
+                  <Parts parts={parts} products={products} />
+                  <div className="uk-margin-large-bottom"></div>
+        </div>
+      </Layout>
   )
 }
 

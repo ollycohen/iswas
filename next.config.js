@@ -4,7 +4,7 @@
 const nextConfig = {
   images: {
     // loader: "default",
-    domains: ["localhost", 'cdn.shopify.com'],
+    domains: ["localhost", 'cdn.shopify.com', 'res.cloudinary.com'],
     remotePatterns: [
         {
           protocol: 'https',
