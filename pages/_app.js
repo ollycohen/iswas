@@ -13,15 +13,15 @@ const MyApp = ({ Component, pageProps, apollo }) => {
   return (
     <>
       {/* <ApolloProvider client={apollo}> */}
-          <Head>
-            <link
-              rel="shortcut icon"
-              href={getStrapiMedia(global.attributes.favicon)}
-            />
-          </Head>
-          <GlobalContext.Provider value={global.attributes}>
-            <Component {...pageProps} />
-          </GlobalContext.Provider>
+      <Head>
+        <link
+          rel="shortcut icon"
+          href={getStrapiMedia(global.attributes.favicon)}
+        />
+      </Head>
+      <GlobalContext.Provider value={global.attributes}>
+        <Component {...pageProps} />
+      </GlobalContext.Provider>
       {/* </ApolloProvider> */}
     </>
   )
