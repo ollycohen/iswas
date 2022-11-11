@@ -7,7 +7,7 @@ const Cart = () => {
   const { checkout, closeCart, openCart } = useContext(ShopContext)
 
   return (
-    <div className="uk-padding" uk-overflow-auto>
+    <div className="uk-padding" uk-overflow-auto="true">
       <button
         onClick={() => openCart()}
         type="button"
@@ -19,7 +19,7 @@ const Cart = () => {
       {/* <div className="toggle" hidden> */}
       <div
         id="cart-body"
-        uk-dropbar
+        uk-dropbar="true"
         className="uk-dropbar-right uk-padding uk-background-secondary"
         uk-drop="pos: bottom-right; stretch: x; mode: click"
         // uk-modal
