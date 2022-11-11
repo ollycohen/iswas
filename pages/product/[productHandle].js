@@ -5,11 +5,13 @@ import Seo from "../../components/seo"
 import { useRouter } from "next/router"
 import { shopifyClient, parseShopifyResponse } from "../../lib/shopify"
 import NextImage from "next/image"
+import { ShopContext } from "../../context/shopContext"
+import { useContext } from "react"
 
 export default function ProductPage({ product, categories }) {
   const { id, title, images, description, variants, handle } = product
   const { src: productImage } = images[0]
-  const { price } = variants[0]
+  const { price, id: firstVariantId } = variants[0]
 
   const seo = {
     metaTitle: title,
@@ -19,20 +21,23 @@ export default function ProductPage({ product, categories }) {
   }
 
   const router = useRouter()
+  const { addItemTocheckout, openCart } = useContext(ShopContext)
 
   const image = (
-    <div className="uk-container">
-      <NextImage
-        // loader={loader}
-        layout="responsive"
-        width="50%"
-        height="50%"
-        // objectFit="contain"
-        src={productImage}
-        alt={`Picture of ${title}`}
-      />
-    </div>
+    <NextImage
+      // loader={loader}
+      layout="responsive"
+      width="50%"
+      height="50%"
+      // objectFit="contain"
+      src={productImage}
+      alt={`Picture of ${title}`}
+    />
   )
+
+  const productAdd = (id) => {
+    addItemTocheckout(id, 1)
+  }
 
   return (
     <Layout categories={categories.data}>
@@ -40,9 +45,6 @@ export default function ProductPage({ product, categories }) {
       <div
         id="banner"
         className="uk-grid uk-height-small uk-flex uk-flex-middle uk-background-cover uk-light uk-padding"
-        // data-src={imageUrl}
-        // data-srcset={imageUrl}
-        // data-uk-img
       >
         <div className="uk-width-1-3">
           <a>
@@ -53,14 +55,32 @@ export default function ProductPage({ product, categories }) {
           <h1>{title}</h1>
         </div>
       </div>
-      {image}
-      <div className="uk-section">
-        <div className="uk-container uk-container-small">
-          <ReactMarkdown source={description} escapeHtml={false} />
+      <div className="uk-child-width-expand@s uk-grid">
+        <div>{image}</div>
+        <div>
+          <div className="uk-section">
+            <div className="uk-container uk-container-small">
+              <ReactMarkdown source={description} escapeHtml={false} />
+            </div>
+          </div>
+          <div className="uk-container">
+            <select className="uk-select">
+              {product.variants.map((v) => (
+                <option variant="contained">{v.title}</option>
+              ))}
+            </select>
+          </div>
+          <div className="uk-container uk-padding">
+            <button
+              variant="contained"
+              onClick={() => {
+                productAdd(firstVariantId)
+              }}
+            >
+              Add to cart
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="uk-container">
-        <button variant="contained">Add to cart</button>
       </div>
     </Layout>
   )

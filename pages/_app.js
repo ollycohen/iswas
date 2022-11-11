@@ -4,15 +4,17 @@ import "../assets/css/style.css"
 import { createContext } from "react"
 import { getGlobal } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
+import ShopProvider from "../context/shopContext"
+import Cart from "../components/cart"
+import Footer from "../components/footer"
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({})
 
-const MyApp = ({ Component, pageProps, apollo }) => {
+const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps
   return (
     <>
-      {/* <ApolloProvider client={apollo}> */}
       <Head>
         <link
           rel="shortcut icon"
@@ -20,9 +22,11 @@ const MyApp = ({ Component, pageProps, apollo }) => {
         />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
-        <Component {...pageProps} />
+        <ShopProvider>
+          {/* <Cart /> */}
+          <Component {...pageProps} />
+        </ShopProvider>
       </GlobalContext.Provider>
-      {/* </ApolloProvider> */}
     </>
   )
 }

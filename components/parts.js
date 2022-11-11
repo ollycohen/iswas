@@ -4,7 +4,7 @@ import Partcard from "./partcard"
 import NextImage from "next/image"
 import Link from "next/link"
 
-const Parts = ({ parts=[], products=[] }) => {
+const Parts = ({ parts = [], products = [] }) => {
   return (
     <div>
       <div>

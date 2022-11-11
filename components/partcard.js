@@ -23,7 +23,6 @@ const Partcard = ({ part }) => {
         }
       }
     }
-    preview
   } else {
     preview = <Coverphoto part={part} />
   }
