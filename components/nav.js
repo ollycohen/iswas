@@ -30,12 +30,12 @@ const Nav = ({ categories }) => {
               </li>
             )
           })}
+          {/* UNCOMMENT THIS FOR SHOP !!! 
           <li key={1000001}>
-            {/* UNCOMMENT THIS FOR SHOP */}
-            {/* <Link href={`/shop`}>
+            <Link href={`/shop`}>
               <a className="uk-link-reset">Shop</a>
-            </Link> */}
-          </li>
+            </Link>
+          </li> */}
         </ul>
       </div>
 

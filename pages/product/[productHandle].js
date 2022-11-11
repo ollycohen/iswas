@@ -65,8 +65,10 @@ export default function ProductPage({ product, categories }) {
           </div>
           <div className="uk-container">
             <select className="uk-select">
-              {product.variants.map((v) => (
-                <option variant="contained">{v.title}</option>
+              {product.variants.map((productVar, i) => (
+                <option variant="contained" key={i}>
+                  {productVar.title}
+                </option>
               ))}
             </select>
           </div>
