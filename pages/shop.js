@@ -10,13 +10,17 @@ const Shop = ({ products, categories }) => {
     metaDescription: `All for sale parts`,
   }
 
+  let body
+  if (products.length) {
+    body = <Parts products={products} />
+  } else {
+    body = <div> Coming Soon! </div>
+  }
   return (
     <Layout categories={categories.data} needsHomeButton={true}>
       <Seo seo={seo} />
       <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <Parts products={products} />
-        </div>
+        <div className="uk-container uk-container-large">{body}</div>
       </div>
     </Layout>
   )

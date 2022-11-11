@@ -4,7 +4,7 @@ import Image from "next/image"
 import { FiShoppingCart } from "react-icons/fi"
 
 const Cart = () => {
-  const { isCartOpen, checkout, closeCart, openCart } = useContext(ShopContext)
+  const { checkout, closeCart, openCart } = useContext(ShopContext)
 
   return (
     <div className="uk-padding" uk-overflow-auto>
@@ -56,6 +56,7 @@ const CartItems = ({ items }) => {
   const productRemove = (id) => {
     removeItemFromCheckout(id)
   }
+
   return (
     <div className="cart--items">
       {items.map((item) => {
@@ -64,20 +65,18 @@ const CartItems = ({ items }) => {
             <Image
               width={300}
               height={300}
-              src={item.variant.image.src}
+              src={item.variant?.image.src}
               alt={item.title}
             />
             <div className="item-content">
               <div className="title">{item.title}</div>
               <div className="quantity">{item.quantity}</div>
               <div className="details-con">
-                <div className="price">${item.variant.price}</div>
+                <div className="price">${item.variant?.price}</div>
               </div>
             </div>
             <button
               onClick={() => {
-                console.log("ITEM LINEID")
-                console.log(item.id)
                 productRemove(item.id)
               }}
             >

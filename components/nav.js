@@ -8,7 +8,7 @@ const Nav = ({ categories }) => {
   const handleCategoryChange = ({ category }) => {
     console.log(category)
   }
-  const { openCart } = useContext(ShopContext)
+  // const { openCart } = useContext(ShopContext)
 
   return (
     <nav className="uk-navbar-container uk-navbar uk-margin-medium-bottom">
@@ -30,19 +30,20 @@ const Nav = ({ categories }) => {
               </li>
             )
           })}
-          {/* UNCOMMENT THIS FOR SHOP !!! 
           <li key={1000001}>
             <Link href={`/shop`}>
               <a className="uk-link-reset">Shop</a>
             </Link>
-          </li> */}
+          </li>
         </ul>
       </div>
 
       <div className="uk-navbar-right uk-margin-right uk-margin-top">
         <ul className="uk-navbar-nav">
           {/* UNCOMMENT THIS FOR SHOP */}
-          <li>{/* <Cart /> */}</li>
+          <li>
+            <Cart />
+          </li>
         </ul>
       </div>
     </nav>
