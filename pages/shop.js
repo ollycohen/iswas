@@ -14,7 +14,7 @@ const Shop = ({ products, categories }) => {
   if (products.length) {
     body = <Parts products={products} />
   } else {
-    body = <div> Coming Soon! </div>
+    body = <div> Workin on getting you products </div>
   }
   return (
     <Layout categories={categories.data} needsHomeButton={true}>
@@ -27,7 +27,6 @@ const Shop = ({ products, categories }) => {
 }
 
 export async function getStaticProps({ params }) {
-  /* TODO Get all products */
   const products = await shopifyClient.product.fetchAll()
 
   const allCategories = await getCategories()

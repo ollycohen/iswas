@@ -1,7 +1,6 @@
 import React, { useContext } from "react"
 import Link from "next/link"
 import { ShopContext } from "../context/shopContext"
-import { FiShoppingCart } from "react-icons/fi"
 import Cart from "./cart"
 
 const Nav = ({ categories }) => {
