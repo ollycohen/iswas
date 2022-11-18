@@ -1,5 +1,5 @@
 import Parts from "../components/parts"
-import { getCategories, getCategoryPaths } from "../lib/api"
+import { getCategories } from "../lib/api"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { shopifyClient, parseShopifyResponse } from "../lib/shopify"
@@ -7,7 +7,7 @@ import { shopifyClient, parseShopifyResponse } from "../lib/shopify"
 const Shop = ({ products, categories }) => {
   const seo = {
     metaTitle: "Shop",
-    metaDescription: `All for sale parts`,
+    metaDescription: "Buy these products",
   }
 
   let body

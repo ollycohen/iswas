@@ -14,7 +14,6 @@ const Home = ({ categories, parts, homepage, products }) => {
         <Parts parts={parts} products={products} />
         <div className="uk-margin-large-bottom"></div>
       </div>
-      <Footer />
     </Layout>
   )
 }

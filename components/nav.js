@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import Link from "next/link"
-import { ShopContext } from "../context/shopContext"
+// import { ShopContext } from "../context/shopContext"
 import Cart from "./cart"
 
 const Nav = ({ categories }) => {
