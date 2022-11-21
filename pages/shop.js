@@ -12,7 +12,7 @@ const Shop = ({ products, categories }) => {
 
   let body
   if (products.length) {
-    body = <Parts products={products} />
+    body = <Parts products={products} parts={[]} />
   } else {
     body = <div> Workin on getting you products </div>
   }
