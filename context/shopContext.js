@@ -42,10 +42,6 @@ class ShopProvider extends Component {
   }
   removeItemFromCheckout = async (variantId) => {
     if (!variantId) return
-    console.log("this checkout id")
-    console.log(this.state.checkout.id)
-    console.log("variant id")
-    console.log(variantId)
     const checkout = await shopifyClient.checkout.removeLineItems(
       this.state.checkout.id,
       [variantId]

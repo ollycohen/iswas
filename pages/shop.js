@@ -26,7 +26,7 @@ const Shop = ({ products, categories }) => {
   )
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const products = await shopifyClient.product.fetchAll()
 
   const allCategories = await getCategories()

@@ -24,7 +24,6 @@ export async function getStaticProps() {
 
   // Fetch all the products
   const products = await shopifyClient.product.fetchAll()
-  console.log(products)
 
   return {
     props: {
