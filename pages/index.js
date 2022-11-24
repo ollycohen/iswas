@@ -23,7 +23,8 @@ export async function getStaticProps() {
   const [categoriesRes, partsRes, homepageRes] = await getIndexData()
 
   // Fetch all the products
-  const products = await shopifyClient.product.fetchAll()
+  // const products = await shopifyClient.product.fetchAll()
+  const products = []
 
   return {
     props: {

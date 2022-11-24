@@ -12,9 +12,9 @@ const Shop = ({ products, categories }) => {
 
   let body
   if (products.length) {
-    body = <Parts products={products} parts={[]} />
+    body = <Parts products={products} />
   } else {
-    body = <div> Workin on getting you products </div>
+    body = <div> No products rn </div>
   }
   return (
     <Layout categories={categories.data} needsHomeButton={true}>
@@ -27,8 +27,8 @@ const Shop = ({ products, categories }) => {
 }
 
 export async function getStaticProps() {
-  const products = await shopifyClient.product.fetchAll()
-
+  // const products = await shopifyClient.product.fetchAll()
+  const products = []
   const allCategories = await getCategories()
   return {
     props: {
