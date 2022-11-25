@@ -6,7 +6,7 @@ import { FiShoppingCart } from "react-icons/fi"
 const Cart = () => {
   const { checkout, closeCart, openCart } = useContext(ShopContext)
 
-  return (
+  return checkout.lineItems?.length ? (
     <div className="uk-padding" uk-overflow-auto="true">
       <button
         onClick={() => openCart()}
@@ -48,6 +48,8 @@ const Cart = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <></>
   )
 }
 

@@ -28,12 +28,9 @@ const Shop = ({ products, categories }) => {
 
 export async function getStaticProps() {
   const products = await shopifyClient.product.fetchAll()
-  // const products = []
-
-  console.log("INDEX")
-  console.log(products)
 
   const allCategories = await getCategories()
+
   return {
     props: {
       products: parseShopifyResponse(products),
