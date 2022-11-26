@@ -9,10 +9,11 @@ const Layout = ({
   seo,
   backgroundImageData,
 }) => {
+  console.log(backgroundImageData)
   return (
     <div>
       <div>
-        {backgroundImageData.attributes.backgroundImage.data ? (
+        {backgroundImageData?.attributes.backgroundImage.data ? (
           <NextImage
             src={
               backgroundImageData.attributes.backgroundImage.data.attributes
