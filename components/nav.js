@@ -39,7 +39,6 @@ const Nav = ({ categories }) => {
 
       <div className="uk-navbar-right uk-margin-right uk-margin-top">
         <ul className="uk-navbar-nav">
-          {/* UNCOMMENT THIS FOR SHOP */}
           <li>
             <Cart />
           </li>

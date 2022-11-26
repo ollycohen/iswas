@@ -23,7 +23,6 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <ShopProvider>
-          {/* <Cart /> */}
           <Component {...pageProps} />
         </ShopProvider>
       </GlobalContext.Provider>
