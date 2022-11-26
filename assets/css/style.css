@@ -20,6 +20,10 @@ body {
   text-align: left;
 }
 
+.crazy-link-style:hover {
+  background-color: rgba(65, 154, 61, 0.7);
+}
+
 @media only screen and (max-width: 600px) {
   .uk-card-media-top {
     width: 100%;

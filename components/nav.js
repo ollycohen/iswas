@@ -4,9 +4,9 @@ import Link from "next/link"
 import Cart from "./cart"
 
 const Nav = ({ categories }) => {
-  const handleCategoryChange = ({ category }) => {
-    console.log(category)
-  }
+  // const handleCategoryChange = ({ category }) => {
+  //   console.log(category)
+  // }
   // const { openCart } = useContext(ShopContext)
 
   return (
@@ -15,7 +15,7 @@ const Nav = ({ categories }) => {
         <ul className="uk-navbar-nav">
           <li key={0}>
             <Link href={`/`}>
-              <a className="uk-link-reset">Everything</a>
+              <a className="uk-link-reset crazy-link-style">Everything</a>
             </Link>
           </li>
           {categories.map((category, i) => {
@@ -23,7 +23,9 @@ const Nav = ({ categories }) => {
             return (
               <li key={i + 1}>
                 <Link href={`/category/${category.attributes.slug}`}>
-                  <a className="uk-link-reset">{category.attributes.name}</a>
+                  <a className="uk-link-reset crazy-link-style">
+                    {category.attributes.name}
+                  </a>
                 </Link>
                 {/* <a value={catName} onClick={() => {handleCategoryChange(catName)}} className="uk-link-reset">{catName}</a> */}
               </li>
@@ -31,7 +33,7 @@ const Nav = ({ categories }) => {
           })}
           <li key={1000001}>
             <Link href={`/shop`}>
-              <a className="uk-link-reset">Shop</a>
+              <a className="uk-link-reset crazy-link-style">Shop</a>
             </Link>
           </li>
         </ul>

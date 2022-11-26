@@ -29,7 +29,7 @@ const Partcard = ({ part }) => {
   return (
     <Link href={`/part/${slug}`}>
       <a className="uk-link-reset">
-        <div className="uk-card uk-card-muted">
+        <div className="uk-card uk-card-muted crazy-link-style">
           <div className="uk-card-body">
             {/* <p id="category" className="uk-text-uppercase">
                 {category}

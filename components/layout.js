@@ -9,7 +9,6 @@ const Layout = ({
   seo,
   backgroundImageData,
 }) => {
-  console.log(backgroundImageData)
   return (
     <div>
       <div>
