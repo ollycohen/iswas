@@ -46,7 +46,6 @@ export async function getStaticProps({ params }) {
   const matchingCategories = await getMatchingCategories(params)
   const allCategories = await getCategories()
   const backgroundImage = await getBackgroundImage()
-
   return {
     props: {
       category: matchingCategories.data[0],

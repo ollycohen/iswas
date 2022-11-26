@@ -9,18 +9,21 @@ const Layout = ({
   seo,
   backgroundImageData,
 }) => {
-  const backgroundImage = backgroundImageData ? (
-    <NextImage
-      src={backgroundImageData.attributes.backgroundImage.data.attributes.url}
-      layout="fill"
-    ></NextImage>
-  ) : (
-    <></>
-  )
-
   return (
     <div>
-      <div>{backgroundImage}</div>
+      <div>
+        {backgroundImageData.attributes.backgroundImage.data ? (
+          <NextImage
+            src={
+              backgroundImageData.attributes.backgroundImage.data.attributes
+                ?.url
+            }
+            layout="fill"
+          ></NextImage>
+        ) : (
+          <></>
+        )}
+      </div>
       <div>
         <Nav categories={categories} needsHomeButton={needsHomeButton} />
         {children}
