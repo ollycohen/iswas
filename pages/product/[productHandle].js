@@ -101,5 +101,6 @@ export const getServerSideProps = async ({ params }) => {
       product: parseShopifyResponse(product),
       categories: categoriesRes,
     },
+    revalidate: 60,
   }
 }

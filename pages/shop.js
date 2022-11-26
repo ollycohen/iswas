@@ -36,7 +36,7 @@ export async function getStaticProps() {
       products: parseShopifyResponse(products),
       categories: allCategories,
     },
-    revalidate: 1,
+    revalidate: 60,
   }
 }
 

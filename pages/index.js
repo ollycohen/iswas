@@ -41,7 +41,7 @@ export async function getStaticProps() {
       products: parseShopifyResponse(products),
       backgroundImageData: backgroundImageRes.data,
     },
-    revalidate: 1,
+    revalidate: 60,
   }
 }
 

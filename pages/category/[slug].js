@@ -52,7 +52,7 @@ export async function getStaticProps({ params }) {
       categories: allCategories,
       backgroundImageData: backgroundImage.data,
     },
-    revalidate: 1,
+    revalidate: 60,
   }
 }
 

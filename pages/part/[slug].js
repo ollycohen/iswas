@@ -80,7 +80,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { part: partRes.data[0], categories: categoriesRes },
-    revalidate: 1,
+    revalidate: 60,
   }
 }
 
