@@ -1,10 +1,10 @@
 import Parts from "../components/parts"
-import { getCategories } from "../lib/api"
+import { getCategories, getBackgroundImage } from "../lib/api"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { shopifyClient, parseShopifyResponse } from "../lib/shopify"
 
-const Shop = ({ products, categories }) => {
+const Shop = ({ products, categories, backgroundImageData }) => {
   const seo = {
     metaTitle: "Shop",
     metaDescription: "Buy these products",
@@ -17,7 +17,11 @@ const Shop = ({ products, categories }) => {
     body = <div> No products rn </div>
   }
   return (
-    <Layout categories={categories.data} needsHomeButton={true}>
+    <Layout
+      categories={categories.data}
+      backgroundImageData={backgroundImageData}
+      needsHomeButton={true}
+    >
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">{body}</div>
@@ -31,10 +35,13 @@ export async function getStaticProps() {
 
   const allCategories = await getCategories()
 
+  const backgroundImageRes = await getBackgroundImage()
+
   return {
     props: {
       products: parseShopifyResponse(products),
       categories: allCategories,
+      backgroundImageData: backgroundImageRes.data,
     },
     revalidate: 60,
   }

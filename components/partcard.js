@@ -5,9 +5,11 @@ import Coverphoto from "./coverphoto"
 const Partcard = ({ part }) => {
   const { slug, title, text } = part.attributes
 
-  let preview
-  let category = part.attributes.category.data.attributes.name
+  let category = part.attributes?.category.data
+    ? part.attributes.category.data.attributes?.name
+    : null
 
+  let preview
   if (category == "writing") {
     const limit = 100
     if (text.length <= limit) {
@@ -23,8 +25,10 @@ const Partcard = ({ part }) => {
         }
       }
     }
-  } else {
+  } else if (category != null) {
     preview = <Coverphoto part={part} />
+  } else {
+    preview = <></>
   }
   return (
     <Link href={`/part/${slug}`}>
