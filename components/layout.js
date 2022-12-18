@@ -10,7 +10,7 @@ const Layout = ({
   seo,
   backgroundImageData,
 }) => {
-  const { width, height } = useWindowDimensions()
+  // const { width, height } = useWindowDimensions()
 
   return (
     <div style={{}}>
@@ -22,8 +22,8 @@ const Layout = ({
                 ?.url
             }
             // layout="fill"
-            width={width ? `${width}px` : "800px"}
-            height={height ? `${height}px` : "800px"}
+            width={"800px"}
+            height={"800px"}
           ></NextImage>
         </div>
       ) : (
