@@ -1,14 +1,14 @@
 body {
-  background-color: black;
   color: white;
+  background-color: black;
 }
 
 .uk-navbar-container {
-  background: rgba(255, 0, 0, 0) !important;
+  background: rgba(0, 0, 0, 0) !important;
 }
 
 .uk-card-media-top {
-  width: 50%;
+  width: 80%;
   margin: auto;
 }
 
@@ -21,11 +21,43 @@ body {
 }
 
 .crazy-link-style:hover {
-  background-color: rgba(65, 154, 61, 0.7);
+  background-color: rgba(131, 33, 228, 0.7);
+}
+
+.post-container {
+  background: rgba(0, 0, 0, 0.842);
+  height: 500px;
+  /* margin-bottom: 10px; */
+  /* border-radius: 10px; */
+  /* border-color: rgba(255, 255, 255, 0.715);
+  border-style: solid; */
+}
+
+.parts-container {
+  width: 52%;
+}
+
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.88);
+  padding: 15px;
+  /* border-radius: 10px; */
+  border-bottom: 1px;
+  border-right: 1px;
+  border-left: 0px;
+  border-top: 0px;
+  /* border-color: white;
+  border-style: solid; */
+}
+
+.body {
+  background-attachment: fixed;
 }
 
 @media only screen and (max-width: 600px) {
   .uk-card-media-top {
+    width: 100%;
+  }
+  .parts-container {
     width: 100%;
   }
 }

@@ -17,7 +17,9 @@ const Home = ({
     <Layout categories={categories} backgroundImageData={backgroundImageData}>
       <Seo seo={homepage.attributes.seo} />
       <div className="uk-container uk-container-large">
-        <Parts parts={parts} products={products} />
+        <div className="uk-container parts-container">
+          <Parts parts={parts} products={products} />
+        </div>
         <div className="uk-margin-large-bottom"></div>
       </div>
     </Layout>

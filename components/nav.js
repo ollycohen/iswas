@@ -15,7 +15,9 @@ const Nav = ({ categories }) => {
         <ul className="uk-navbar-nav">
           <li key={0}>
             <Link href={`/`}>
-              <a className="uk-link-reset crazy-link-style">Everything</a>
+              <a className="uk-link-reset">
+                <div className="crazy-link-style nav-button">Everything</div>
+              </a>
             </Link>
           </li>
           {categories.map((category, i) => {
@@ -23,8 +25,10 @@ const Nav = ({ categories }) => {
             return (
               <li key={i + 1}>
                 <Link href={`/category/${category.attributes.slug}`}>
-                  <a className="uk-link-reset crazy-link-style">
-                    {category.attributes.name}
+                  <a className="uk-link-reset">
+                    <div className="nav-button crazy-link-style">
+                      {category.attributes.name}
+                    </div>
                   </a>
                 </Link>
                 {/* <a value={catName} onClick={() => {handleCategoryChange(catName)}} className="uk-link-reset">{catName}</a> */}
@@ -33,7 +37,9 @@ const Nav = ({ categories }) => {
           })}
           <li key={1000001}>
             <Link href={`/shop`}>
-              <a className="uk-link-reset crazy-link-style">Shop</a>
+              <a className="uk-link-reset">
+                <div className="crazy-link-style nav-button">Shop</div>
+              </a>
             </Link>
           </li>
         </ul>

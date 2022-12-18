@@ -15,7 +15,7 @@ const Image = ({ image, style }) => {
       width="50%"
       height="50%"
       // objectFit="contain"
-      src={getStrapiURL(url)}
+      src={url}
       alt={alternativeText || ""}
     />
   )

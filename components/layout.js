@@ -1,6 +1,7 @@
 import Footer from "./footer"
 import Nav from "./nav"
 import NextImage from "next/image"
+import useWindowDimensions from "../hooks/useWindowDimension"
 
 const Layout = ({
   children,
@@ -9,24 +10,30 @@ const Layout = ({
   seo,
   backgroundImageData,
 }) => {
+  const { width, height } = useWindowDimensions()
+
   return (
-    <div>
-      <div>
-        {backgroundImageData?.attributes?.backgroundImage.data ? (
+    <div style={{}}>
+      {backgroundImageData?.attributes?.backgroundImage.data ? (
+        <div style={{ position: "fixed", justifyContent: "center" }}>
           <NextImage
             src={
               backgroundImageData.attributes.backgroundImage.data.attributes
                 ?.url
             }
-            layout="fill"
+            // layout="fill"
+            width={width ? `${width}px` : "800px"}
+            height={height ? `${height}px` : "800px"}
           ></NextImage>
-        ) : (
-          <></>
-        )}
-      </div>
-      <div>
+        </div>
+      ) : (
+        <></>
+      )}
+      <div style={{ position: "center" }}>
         <Nav categories={categories} needsHomeButton={needsHomeButton} />
-        {children}
+        <div className="uk-container" style={{ background: "black" }}>
+          {children}
+        </div>
         <Footer />
       </div>
     </div>

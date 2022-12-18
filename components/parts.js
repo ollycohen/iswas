@@ -6,7 +6,14 @@ import Link from "next/link"
 
 const Parts = ({ parts = [], products = [] }) => {
   return (
-    <div>
+    <div
+      style={{
+        background: "black",
+        height: "100%",
+        width: "100%",
+        overflow: "auto",
+      }}
+    >
       <div>
         {parts
           .slice(0)

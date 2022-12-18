@@ -1,4 +1,4 @@
-import { getStrapiMedia, getStrapiImage } from "../lib/media"
+import { getStrapiMedia, getCloudinaryImage } from "../lib/media"
 import NextImage from "next/image"
 
 const Coverphoto = ({ part, style }) => {
@@ -12,20 +12,13 @@ const Coverphoto = ({ part, style }) => {
   if (part.attributes.thumbnail.data != null) {
     data = part.attributes.thumbnail.data.attributes
   } else {
-    let foundImage = false
-    part.attributes.media.data.every((value, index) => {
+    part.attributes.media.data?.every((value, index) => {
       if (value.attributes.mime.includes("image")) {
         data = value.attributes
-        foundImage = true
-        return false
+        return
       }
-      return true
     })
   }
-
-  // const loader = () => {
-  //   return getStrapiMedia(image)
-  // }
 
   return (
     <NextImage
@@ -34,7 +27,7 @@ const Coverphoto = ({ part, style }) => {
       width={data.width}
       height={data.width}
       objectFit="contain"
-      src={getStrapiImage(data)}
+      src={data.url}
       alt={data.alternativeText}
     />
   )

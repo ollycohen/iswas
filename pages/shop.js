@@ -14,7 +14,7 @@ const Shop = ({ products, categories, backgroundImageData }) => {
   if (products.length) {
     body = <Parts products={products} />
   } else {
-    body = <div> No products rn </div>
+    body = <div className="uk-container"> No products rn </div>
   }
   return (
     <Layout
