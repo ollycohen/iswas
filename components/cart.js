@@ -5,7 +5,6 @@ import { FiShoppingCart } from "react-icons/fi"
 
 const Cart = () => {
   const { checkout, closeCart, openCart } = useContext(ShopContext)
-  console.log(checkout)
   return checkout?.lineItems?.length ? (
     <div className="uk-padding" uk-overflow-auto="true">
       <button

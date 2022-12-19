@@ -5,15 +5,10 @@ import NextImage from "next/image"
 import Link from "next/link"
 
 const Parts = ({ parts = [], products = [] }) => {
+  parts = parts ? parts : []
+  products = products ? products : []
   return (
-    <div
-      style={{
-        background: "black",
-        height: "100%",
-        width: "100%",
-        overflow: "auto",
-      }}
-    >
+    <div>
       <div>
         {parts
           .slice(0)

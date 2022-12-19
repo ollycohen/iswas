@@ -38,7 +38,7 @@ const Nav = ({ categories }) => {
           <li key={1000001}>
             <Link href={`/shop`}>
               <a className="uk-link-reset">
-                <div className="crazy-link-style nav-button">Shop</div>
+                <div className="crazy-link-style nav-button">Buy Stuff</div>
               </a>
             </Link>
           </li>

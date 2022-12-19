@@ -63,9 +63,8 @@ const Part = ({ part, categories }) => {
 
 export async function getStaticPaths() {
   const partsRes = await getPartPath()
-
   return {
-    paths: partsRes.data.map((part) => ({
+    paths: partsRes.data?.map((part) => ({
       params: {
         slug: part.attributes.slug,
       },
