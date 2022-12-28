@@ -1,6 +1,6 @@
 import Footer from "./footer"
 import Nav from "./nav"
-import NextImage from "next/image"
+import Image from "next/image"
 import useWindowDimensions from "../hooks/useWindowDimension"
 
 const Layout = ({
@@ -11,19 +11,30 @@ const Layout = ({
   backgroundImageData,
 }) => {
   const { width, height } = useWindowDimensions()
-
   return (
     <div style={{}}>
       {backgroundImageData?.attributes?.backgroundImage.data ? (
-        <div style={{ position: "fixed", justifyContent: "center" }}>
-          <NextImage
+        <div
+          style={{
+            position: "fixed",
+            height: height ? height : 1000,
+            width: width ? width : 800,
+          }}
+        >
+          <Image
             src={
               backgroundImageData.attributes.backgroundImage.data.attributes
                 ?.url
             }
-            width={width ? width : "800px"}
-            height={height ? height : "800px"}
-          ></NextImage>
+            alt="Background art by Isaac Sosebee"
+            width={width ? width : 800}
+            height={height ? height : 800}
+            style={{
+              minHeight: "100%",
+              minWidth: "100%",
+            }}
+            priority={true}
+          />
         </div>
       ) : (
         <></>

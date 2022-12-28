@@ -45,7 +45,11 @@ const Parts = ({ parts = [], products = [] }) => {
 
             return (
               <div key={i + parts.length}>
-                <Link key={parts.length + i} href={`/product/${handle}`}>
+                <Link
+                  key={parts.length + i}
+                  href={`/product/${handle}`}
+                  legacyBehavior
+                >
                   <a className="uk-link-reset">
                     <div className="uk-card uk-card-muted crazy-link-style">
                       <div className="uk-card-body">

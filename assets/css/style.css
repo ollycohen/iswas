@@ -1,4 +1,4 @@
-body {
+html {
   color: white;
   background-color: black;
 }
@@ -8,7 +8,6 @@ body {
 }
 
 .uk-card-media-top {
-  width: 80%;
   margin: auto;
 }
 
@@ -22,15 +21,19 @@ body {
 
 .crazy-link-style:hover {
   background-color: rgba(131, 33, 228, 0.7);
+  border-color: white;
+  border-style: solid;
+}
+
+.partcard-wrapper {
+  width: 40%;
+  height: auto;
 }
 
 .post-container {
   background: rgba(0, 0, 0, 0.842);
   height: 500px;
-  /* margin-bottom: 10px; */
-  /* border-radius: 10px; */
-  /* border-color: rgba(255, 255, 255, 0.715);
-  border-style: solid; */
+  overflow: hidden;
 }
 
 .parts-container {
@@ -40,22 +43,44 @@ body {
 .nav-button {
   background-color: rgba(0, 0, 0, 0.88);
   padding: 15px;
-  /* border-radius: 10px; */
   border-bottom: 1px;
   border-right: 1px;
   border-left: 0px;
   border-top: 0px;
-  /* border-color: white;
-  border-style: solid; */
 }
 
 .body {
   background-attachment: fixed;
 }
 
+@media only screen and (max-width: 1150px) and (min-width: 1001px) {
+  .partcard-wrapper {
+    width: 50%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 601px) {
+  .partcard-wrapper {
+    width: 60%;
+    height: auto;
+  }
+}
+
 @media only screen and (max-width: 600px) {
-  .uk-card-media-top {
+  .partcard-wrapper {
+    width: 50%;
+    height: auto;
+  }
+  .parts-container {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .partcard-wrapper {
+    width: 60%;
+    height: auto;
   }
   .parts-container {
     width: 100%;

@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react"
 
-// type WindowDimentions = {
-//   width: number | undefined
-//   height: number | undefined
-// }
-
 const useWindowDimensions = () => {
   const [windowDimensions, setWindowDimensions] = useState({
     width: undefined,

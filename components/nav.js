@@ -14,7 +14,7 @@ const Nav = ({ categories }) => {
       <div className="uk-navbar-center uk-margin-top">
         <ul className="uk-navbar-nav">
           <li key={0}>
-            <Link href={`/`}>
+            <Link href={`/`} legacyBehavior>
               <a className="uk-link-reset">
                 <div className="crazy-link-style nav-button">Everything</div>
               </a>
@@ -24,7 +24,10 @@ const Nav = ({ categories }) => {
             const catName = category.attributes.name
             return (
               <li key={i + 1}>
-                <Link href={`/category/${category.attributes.slug}`}>
+                <Link
+                  href={`/category/${category.attributes.slug}`}
+                  legacyBehavior
+                >
                   <a className="uk-link-reset">
                     <div className="nav-button crazy-link-style">
                       {category.attributes.name}
@@ -36,7 +39,7 @@ const Nav = ({ categories }) => {
             )
           })}
           <li key={1000001}>
-            <Link href={`/shop`}>
+            <Link href={`/shop`} legacyBehavior>
               <a className="uk-link-reset">
                 <div className="crazy-link-style nav-button">Buy Stuff</div>
               </a>
