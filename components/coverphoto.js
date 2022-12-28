@@ -1,4 +1,3 @@
-import { getStrapiMedia, getCloudinaryImage } from "../lib/media"
 import Image from "next/image"
 
 const Coverphoto = ({ part, style }) => {
