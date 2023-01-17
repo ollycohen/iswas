@@ -12,13 +12,13 @@ const Layout = ({
 }) => {
   const { width, height } = useWindowDimensions()
   return (
-    <div style={{}}>
+    <div>
       {backgroundImageData?.attributes?.backgroundImage.data ? (
         <div
           style={{
             position: "fixed",
             height: height ? height : 1000,
-            width: width ? width : 800,
+            width: width > 900 ? width : 900,
           }}
         >
           <Image
@@ -39,11 +39,9 @@ const Layout = ({
       ) : (
         <></>
       )}
-      <div style={{ position: "center" }}>
+      <div className="body-foreground" style={{}}>
         <Nav categories={categories} needsHomeButton={needsHomeButton} />
-        <div className="uk-container" style={{ background: "black" }}>
-          {children}
-        </div>
+        <div className="uk-container">{children}</div>
         <Footer />
       </div>
     </div>

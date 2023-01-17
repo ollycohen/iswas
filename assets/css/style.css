@@ -3,8 +3,16 @@ html {
   background-color: black;
 }
 
-.uk-navbar-container {
+/* .nav__menu-bar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  cursor: pointer;
+} */
+
+nav {
   background: rgba(0, 0, 0, 0) !important;
+  display: flex;
 }
 
 .uk-card-media-top {
@@ -25,12 +33,40 @@ html {
   border-style: solid;
 }
 
+.nav__menu-list {
+  margin-left: auto;
+  flex-direction: row;
+  /* position: fixed; */
+  top: 0px;
+  width: 95%;
+  z-index: 1000;
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+  font-size: 24px;
+}
+
+.nav__menu-list {
+  /* display: flex; */
+}
+
+.nav-button:hover {
+  background-color: rgba(199, 130, 197, 0.7);
+  border-color: white;
+  border-style: solid;
+}
+
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.88);
+  padding: 15px;
+}
+
 .partcard-wrapper {
   width: 40%;
   height: auto;
 }
 
-.post-container {
+.partcard-container {
   background: rgba(0, 0, 0, 0.842);
   height: 500px;
   overflow: hidden;
@@ -40,17 +76,8 @@ html {
   width: 52%;
 }
 
-.nav-button {
-  background-color: rgba(0, 0, 0, 0.88);
-  padding: 15px;
-  border-bottom: 1px;
-  border-right: 1px;
-  border-left: 0px;
-  border-top: 0px;
-}
-
-.body {
-  background-attachment: fixed;
+.nav__menu-bar {
+  display: none;
 }
 
 @media only screen and (max-width: 1150px) and (min-width: 1001px) {
@@ -74,6 +101,56 @@ html {
   }
   .parts-container {
     width: 100%;
+    margin-top: 10%;
+  }
+  .partcard-container {
+    background: rgba(0, 0, 0, 0);
+    border-color: gray;
+    border-top: solid;
+  }
+  .body-foreground {
+    width: 600px !important;
+  }
+  .nav-button:hover {
+    border-style: none;
+  }
+  .nav__menu-list {
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    width: 95%;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0);
+    margin-top: 100px;
+    z-index: 1000;
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    font-size: 24px;
+  }
+  .nav__menu-list.active {
+    visibility: visible;
+  }
+  .menu-icon {
+    position: relative;
+    flex-direction: column;
+    row-gap: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+    display: flex;
+  }
+  .menu-icon div {
+    width: 200px;
+    margin-left: 105%;
+    height: 10px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  .back-button {
+    font-size: 24px;
+  }
+  p {
+    font-size: 24px;
   }
 }
 
@@ -84,5 +161,6 @@ html {
   }
   .parts-container {
     width: 100%;
+    background: rgba(0, 0, 0, 0);
   }
 }

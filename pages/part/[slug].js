@@ -28,12 +28,12 @@ const Part = ({ part, categories }) => {
       <Seo seo={seo} />
       <div
         id="banner"
-        className="uk-grid uk-height-small uk-flex uk-flex-middle uk-background-cover uk-light uk-padding"
+        className="uk-height-small uk-flex uk-flex-middle uk-background-cover uk-light uk-padding"
         // data-src={imageUrl}
         // data-srcset={imageUrl}
         // data-uk-img
       >
-        <div className="uk-width-1-3">
+        <div className="uk-width-1-3 back-button">
           <a>
             <span onClick={() => router.back()}>&#8592; Back</span>
           </a>

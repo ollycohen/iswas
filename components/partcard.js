@@ -9,7 +9,7 @@ const Partcard = ({ part }) => {
   return (
     <Link href={`/part/${slug}`} legacyBehavior>
       <a className="uk-link-reset">
-        <div className="uk-card uk-card-muted crazy-link-style post-container">
+        <div className="uk-card uk-card-muted crazy-link-style partcard-container">
           <div className="uk-card-body">
             <p id="title" className="uk-text-large">
               {title}
